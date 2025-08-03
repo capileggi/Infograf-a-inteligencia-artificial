@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Comparativa de IA: ChatGPT vs Gemini vs Perplexity (Agosto 2025)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light Blue-Gray Background */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .kpi-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .header-gradient {
+            background: linear-gradient(90deg, #0A4D68, #088395);
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 900;
+            color: #05BFDB;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #64748b;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+        .card {
+             background-color: white;
+             border-radius: 0.75rem;
+             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+             padding: 1.5rem;
+             margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="header-gradient text-white p-8 mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight">Batalla de Titanes de la IA</h1>
+        <p class="mt-4 text-lg md:text-xl text-cyan-200">Análisis Comparativo: ChatGPT 4o Plus vs. Gemini Pro vs. Perplexity Pro (Agosto 2025)</p>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <section id="fortalezas" class="mb-16">
+            <h2 class="section-title">Fortalezas Principales</h2>
+            <p class="section-subtitle">Cada inteligencia artificial tiene un "superpoder" que la define. Aquí te mostramos dónde brilla cada una, asignando un puntaje de especialización para visualizar su enfoque principal.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="kpi-card border-t-4 border-cyan-400">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">ChatGPT 4o Plus</h3>
+                    <p class="text-lg font-semibold text-cyan-600 mb-4">Creatividad y Versatilidad</p>
+                    <p class="text-slate-600">El maestro de la conversación fluida, la redacción de guiones y el brainstorming. Es el asistente más polivalente.</p>
+                </div>
+                <div class="kpi-card border-t-4 border-teal-400">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Gemini Pro</h3>
+                    <p class="text-lg font-semibold text-teal-600 mb-4">Análisis Profundo y Multimodal</p>
+                    <p class="text-slate-600">Destaca en el razonamiento complejo, el análisis de grandes documentos y la integración con el ecosistema de Google.</p>
+                </div>
+                <div class="kpi-card border-t-4 border-sky-400">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Perplexity Pro</h3>
+                    <p class="text-lg font-semibold text-sky-600 mb-4">Investigación y Verificación</p>
+                    <p class="text-slate-600">El motor de respuestas definitivo. Su poder reside en buscar en tiempo real y citar las fuentes para máxima fiabilidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparativa" class="mb-16">
+            <h2 class="section-title">Comparativa de Capacidades</h2>
+            <p class="section-subtitle">Para entender mejor sus diferencias, hemos puntuado a cada IA en diversas áreas clave. Un gráfico de radar es perfecto para comparar múltiples métricas de forma equilibrada.</p>
+            <div class="card">
+                 <div class="chart-container h-[400px] md:h-[500px]">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <p class="text-center text-slate-500 mt-4">Este gráfico muestra una puntuación de 1 a 10 en cada categoría, donde 10 representa la excelencia. Permite ver visualmente el "perfil" de cada IA y dónde se superponen o divergen sus capacidades.</p>
+            </div>
+        </section>
+
+        <section id="casos-de-uso" class="mb-16">
+            <h2 class="section-title">¿Cuál Usar y Cuándo?</h2>
+            <p class="section-subtitle">La elección de la IA correcta depende enteramente de la tarea. Este gráfico de barras muestra qué herramienta es la más recomendada para cada caso de uso específico.</p>
+            <div class="card">
+                <div class="chart-container h-[500px] md:h-[600px]">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <p class="text-center text-slate-500 mt-4">Las barras más altas indican una mayor idoneidad para la tarea. Esto te ayuda a decidir rápidamente qué plataforma abrir según lo que necesites hacer.</p>
+            </div>
+        </section>
+
+        <section id="ecosistema" class="mb-16">
+            <h2 class="section-title">Integración y Ecosistema</h2>
+            <p class="section-subtitle">Una IA no es solo su modelo, sino también cómo se conecta con otras herramientas. Aquí desglosamos las ventajas del ecosistema de cada una.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-3 text-cyan-700">ChatGPT: El Ecosistema Abierto</h3>
+                    <p class="text-5xl mb-4">🔌</p>
+                    <p class="text-slate-600">Su fortaleza radica en los **GPTs personalizados** y una amplia tienda de **plugins** que extienden sus capacidades a casi cualquier campo imaginable.</p>
+                </div>
+                <div class="card">
+                     <h3 class="text-xl font-bold mb-3 text-teal-700">Gemini: La Integración Nativa</h3>
+                    <p class="text-5xl mb-4">🌐</p>
+                    <p class="text-slate-600">Vive dentro del **ecosistema de Google**. Su integración con Drive, Gmail, Docs y YouTube es profunda y fluida, potenciando la productividad.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-3 text-sky-700">Perplexity: El Hub de Modelos</h3>
+                    <p class="text-5xl mb-4">🔄</p>
+                    <p class="text-slate-600">Funciona como un centro de control que te da acceso a **múltiples modelos de IA** (incluidos los de sus competidores) y automatiza tareas con su "navegador AI".</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 p-8 mt-12 text-center">
+        <p>&copy; 2025 Análisis de IA. Infografía creada para una visualización clara y concisa.</p>
+        <p class="text-sm text-slate-400 mt-2">Los datos están basados en el "Cuadro Comparativo Unificado de IA (Agosto 2025)".</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const commonTooltipOptions = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const radarCtx = document.getElementById('radarChart').getContext('2d');
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Razonamiento Lógico', 'Creatividad y Estilo', 'Investigación Web', 'Código y Depuración', 'Manejo de Documentos', 'Imágenes y Multimedia'],
+                datasets: [{
+                    label: 'ChatGPT 4o Plus',
+                    data: [8, 10, 7, 8, 7, 8],
+                    borderColor: '#05BFDB',
+                    backgroundColor: 'rgba(5, 191, 219, 0.2)',
+                    pointBackgroundColor: '#05BFDB',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#05BFDB'
+                }, {
+                    label: 'Gemini Pro',
+                    data: [10, 8, 8, 9, 10, 9],
+                    borderColor: '#088395',
+                    backgroundColor: 'rgba(8, 131, 149, 0.2)',
+                    pointBackgroundColor: '#088395',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#088395'
+                }, {
+                    label: 'Perplexity Pro',
+                    data: [8, 7, 10, 7, 8, 6],
+                    borderColor: '#0A4D68',
+                    backgroundColor: 'rgba(10, 77, 104, 0.2)',
+                    pointBackgroundColor: '#0A4D68',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#0A4D68'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Puntuación de Capacidades por IA',
+                        font: { size: 18, weight: 'bold' },
+                        color: '#1e293b',
+                        padding: { top: 10, bottom: 20 }
+                    },
+                    legend: {
+                        position: 'bottom',
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 12 } },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                }
+            }
+        });
+
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('Redacción Creativa y Guiones'),
+                    wrapLabel('Análisis de Datos Complejos'),
+                    wrapLabel('Investigación con Fuentes'),
+                    wrapLabel('Codificación y Depuración'),
+                    wrapLabel('Análisis de Documentos Largos')
+                ],
+                datasets: [{
+                    label: 'ChatGPT 4o Plus',
+                    data: [10, 8, 6, 8, 7],
+                    backgroundColor: '#05BFDB',
+                    borderColor: '#0492a6',
+                    borderWidth: 1
+                }, {
+                    label: 'Gemini Pro',
+                    data: [8, 10, 7, 9, 10],
+                    backgroundColor: '#088395',
+                    borderColor: '#066a7a',
+                    borderWidth: 1
+                }, {
+                    label: 'Perplexity Pro',
+                    data: [6, 7, 10, 7, 8],
+                    backgroundColor: '#0A4D68',
+                    borderColor: '#073b50',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                responsive: true,
+                ...commonTooltipOptions,
+                plugins: {
+                    ...commonTooltipOptions.plugins,
+                    title: {
+                        display: true,
+                        text: 'IA Recomendada por Caso de Uso',
+                        font: { size: 18, weight: 'bold' },
+                        color: '#1e293b',
+                        padding: { top: 10, bottom: 20 }
+                    },
+                    legend: {
+                        position: 'bottom',
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                           display: false
+                        }
+                    },
+                    y: {
+                         grid: {
+                           display: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
